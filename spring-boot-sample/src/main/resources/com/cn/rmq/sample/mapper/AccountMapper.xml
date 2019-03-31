@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.rmq.sample.mapper.AccountMapper">
+    <resultMap id="BaseResultMap" type="com.cn.rmq.sample.model.po.Account">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="money" jdbcType="DECIMAL" property="money"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        id, money, create_time, update_time
+    </sql>
+
+    <update id="changeMoney" parameterType="RechargeOrder">
+        UPDATE t_account
+        set money = money + #{money,jdbcType=DECIMAL},
+        update_time = now()
+        WHERE id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

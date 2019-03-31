@@ -1,4 +1,4 @@
-package com.cn.rmq.account.model;
+package com.cn.rmq.sample.model;
 
 /**
  * <p>Title: Constants</p>
@@ -26,4 +26,9 @@ public class Constants {
      * MSG
      */
     public static final String MSG_SUCCESS = "SUCCESS";
+
+    /**
+     * Queue
+     */
+    public static final String QUEUE_PAY = "pay.queue";
 }
