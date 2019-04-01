@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Chen Nan
  * @date 2019/3/31.
  */
-@Service
+@Service(timeout = Constants.SERVICE_TIMEOUT)
 @Slf4j
 public class PayOrderServiceImpl extends BaseServiceImpl<PayOrderMapper, PayOrder, Integer>
         implements IPayOrderService {
@@ -32,7 +32,7 @@ public class PayOrderServiceImpl extends BaseServiceImpl<PayOrderMapper, PayOrde
     public void paySuccess(PayDto req) {
         log.info("【paySuccess】start:", req);
         PayOrder payOrder = mapper.selectByPrimaryKey(req.getPayOrderId());
-        if(payOrder == null){
+        if (payOrder == null) {
             throw new RuntimeException("支付订单不存在");
         }
 
@@ -59,17 +59,20 @@ public class PayOrderServiceImpl extends BaseServiceImpl<PayOrderMapper, PayOrde
         // 假如使用同步调用，RMQ确认消息成功，已经把MQ消息发送给下游子系统
         // 但是由于网络波动或其他原因，此处抛出异常，使已经正常执行的业务回滚，如果业务复杂，就会造成数据不一致。
         // 因此使用异步调用，忽略确认发送消息的异常。异常结果由消息确认子系统来处理。
-        RpcContext.getContext().asyncCall(()->rmqService.confirmAndSendMessage(messageId));
+        RpcContext.getContext().asyncCall(() -> rmqService.confirmAndSendMessage(messageId));
 
         log.info("【paySuccess】success, payOrderId={}, messageId={}", req.getPayOrderId(), messageId);
     }
 
     @Override
     public int check(PayOrder req) {
+        log.info("【payCheck】start, PayOrderId={}", req.getId());
         PayOrder payOrder = mapper.selectByPrimaryKey(req.getId());
-        if(payOrder == null){
+        if (payOrder == null) {
+            log.info("【payCheck】订单不存在, PayOrderId={}", req.getId());
             return 0;
         }
+        log.info("【payCheck】success, PayOrderId={}, status={}", req.getId(), payOrder.getStatus());
         return payOrder.getStatus();
     }
 }

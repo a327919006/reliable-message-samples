@@ -31,4 +31,9 @@ public class Constants {
      * Queue
      */
     public static final String QUEUE_PAY = "pay.queue";
+
+    /**
+     * dubbo服务超时时长
+     */
+    public static final int SERVICE_TIMEOUT = 5000;
 }

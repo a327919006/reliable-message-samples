@@ -11,10 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -50,7 +47,7 @@ public class PayController {
      */
     @ApiOperation("消息确认子系统-确认是否发送消息")
     @PostMapping("check")
-    public Object check(@ModelAttribute @Valid PayOrder req) {
+    public Object check(@RequestBody @Valid PayOrder req) {
         BaseRsp rsp = new BaseRsp();
         int result = payOrderService.check(req);
         rsp.setData(result);

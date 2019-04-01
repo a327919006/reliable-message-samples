@@ -1,7 +1,7 @@
 package com.cn.rmq.sample.service.impl;
 
-import com.cn.rmq.api.service.IRmqService;
 import com.cn.rmq.sample.mapper.RechargeOrderMapper;
+import com.cn.rmq.sample.model.Constants;
 import com.cn.rmq.sample.model.dto.RechargeDto;
 import com.cn.rmq.sample.model.po.Account;
 import com.cn.rmq.sample.model.po.PayOrder;
@@ -23,7 +23,7 @@ import java.util.Date;
  * @author Chen Nan
  * @date 2019/3/31.
  */
-@Service
+@Service(timeout = Constants.SERVICE_TIMEOUT)
 @Slf4j
 public class RechargeOrderServiceImpl extends BaseServiceImpl<RechargeOrderMapper, RechargeOrder, Integer>
         implements IRechargeOrderService {

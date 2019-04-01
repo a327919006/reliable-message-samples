@@ -1,5 +1,6 @@
 package com.cn.rmq.sample.mq;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.cn.rmq.api.model.RmqMessage;
 import com.cn.rmq.api.service.IRmqService;
@@ -34,7 +35,11 @@ public class PayQueueCustomer {
             PayOrder payOrder = JSONUtil.toBean(msg.getMessageBody(), PayOrder.class);
 
             rechargeOrderService.rechargeSuccess(payOrder);
-            rmqService.deleteMessageById(msg.getMessageId());
+
+            // 如果使用的是RMQ的directSendMessage，不保存直接发送消息，则没有消息ID
+            if (StrUtil.isNotBlank(msg.getMessageId())) {
+                rmqService.deleteMessageById(msg.getMessageId());
+            }
 
             log.info("【payQueue】处理消息成功");
         } catch (Exception e) {
