@@ -36,7 +36,8 @@ public class PayQueueCustomer {
 
             rechargeOrderService.rechargeSuccess(payOrder);
 
-            // 如果使用的是RMQ的directSendMessage，不保存直接发送消息，则没有消息ID
+            // 通知RMQ消息消费成功
+            // 如果使用的是RMQ的directSendMessage，无需通知
             if (StrUtil.isNotBlank(msg.getMessageId())) {
                 rmqService.deleteMessageById(msg.getMessageId());
             }
