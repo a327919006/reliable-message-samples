@@ -58,9 +58,9 @@
         <dependencies>
             <!--rmq-->
             <dependency>
-                <groupId>com.cn.rmq</groupId>
+                <groupId>com.gitee.nuliing</groupId>
                 <artifactId>rmq-api</artifactId>
-                <version>1.0</version>
+                <version>1.0.1</version>
             </dependency>
 
             <!-- Spring Boot依赖配置-->

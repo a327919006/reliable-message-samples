@@ -14,7 +14,7 @@
     <dependencies>
         <!--rmq-->
         <dependency>
-            <groupId>com.cn.rmq</groupId>
+            <groupId>com.gitee.nuliing</groupId>
             <artifactId>rmq-api</artifactId>
         </dependency>
 
