@@ -9,8 +9,8 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @MapperScan("com.cn.rmq.sample.mapper")
-public class AccountApplication {
+public class BootSampleApplication {
     public static void main(String[] args) {
-        SpringApplication.run(AccountApplication.class, args);
+        SpringApplication.run(BootSampleApplication.class, args);
     }
 }

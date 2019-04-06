@@ -117,7 +117,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.cn.rmq.sample.AccountApplication</mainClass>
+                    <mainClass>com.cn.rmq.sample.BootSampleApplication</mainClass>
                     <outputDirectory>../target</outputDirectory>
                 </configuration>
                 <executions>
