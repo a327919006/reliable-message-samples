@@ -1,9 +1,9 @@
 # RMQ对接示例
 
-[TOC]
-
 ## 介绍
 RMQ对接示例，请先根据[RMQ项目依赖](https://www.showdoc.cc/rmq?page_id=1812484091467621 "RMQ项目依赖")，准备好RMQ运行环境。
+
+# [中文文档](https://www.showdoc.cc/rmq?page_id=1820953552972418 "中文文档")
 
 ## 示例源码仓库地址
 
