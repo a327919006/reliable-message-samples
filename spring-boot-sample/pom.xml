@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rmq-account-api</artifactId>
+    <artifactId>rmq-boot-sample</artifactId>
 
     <dependencies>
         <!--rmq-->
