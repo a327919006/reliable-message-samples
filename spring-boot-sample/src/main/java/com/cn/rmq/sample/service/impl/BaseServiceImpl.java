@@ -16,6 +16,7 @@ import java.util.List;
  *
  * @author Chen Nan
  */
+@SuppressWarnings("unchecked")
 @Slf4j
 public abstract class BaseServiceImpl<M extends Mapper, T, PK> {
     /**
