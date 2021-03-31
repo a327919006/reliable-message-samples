@@ -46,7 +46,7 @@
         <dubbo.version>2.7.0</dubbo.version>
 
         <!--guava-->
-        <guava.version>27.0.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
 
         <!-- plugins -->
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
