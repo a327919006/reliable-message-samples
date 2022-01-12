@@ -43,7 +43,7 @@
         <jackson.version>2.9.9.2</jackson.version>
 
         <!--dubbo-->
-        <dubbo.version>2.7.0</dubbo.version>
+        <dubbo.version>2.7.15</dubbo.version>
 
         <!--guava-->
         <guava.version>27.0.1-jre</guava.version>
